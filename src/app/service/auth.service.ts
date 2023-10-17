@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) { 
+  constructor(private http:HttpClient) {
 
   }
   apiurl='http://localhost:3000/user';
@@ -15,9 +15,9 @@ export class AuthService {
     return this.http.post(this.apiurl+'/register',inputdata)
   }
   submitAdvice(studentConcern:any){
-    return this.http.post('http://localhost:3004/advice/sendEmails',studentConcern)
+    return this.http.post('http://localhost:3003/advice/sendEmail',studentConcern)
   }
-  
+
 
   GetUserbyCode(id:any, email:any){
     return this.http.get(this.apiurl+'/login');
@@ -43,6 +43,10 @@ export class AuthService {
     return sessionStorage.getItem('role')!=null?sessionStorage.getItem('role')?.toString():'';
   }
   GetAllCustomer(){
+    return this.http.get('http://localhost:3000/customer');
+  }
+
+  GetAdmission(){
     return this.http.get('http://localhost:3000/customer');
   }
   GetAllSubjects(){

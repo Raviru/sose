@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../service/auth.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-updatepopup',
@@ -17,10 +18,11 @@ export class UpdatepopupComponent implements OnInit {
     this.service.getuserrole().subscribe(res => {
       this.rolelist = res;
     });
-    
-    
 
   }
+
+  subjects = ['a','b', 'c'];
+
   ngOnInit(): void {
     if (this.data.usercode != '' && this.data.usercode != null) {
       this.loaduserdata(this.data.usercode, this.data.password);
@@ -50,11 +52,11 @@ export class UpdatepopupComponent implements OnInit {
       });
     });
   }
-  UpdateUser() {
-    this.service.updateuser(this.registerform.value.id, this.registerform.value).subscribe(res => {
-      this.toastr.success('Updated successfully.');
-      this.dialogref.close();
-    });
-  }
+  // UpdateUser() {
+  //   this.service.updateuser(this.registerform.value.id, this.registerform.value).subscribe(res => {
+  //     this.toastr.success('Updated successfully.');
+  //     this.dialogref.close();
+  //   });
+  // }
 
 }

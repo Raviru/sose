@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AdviceComponent } from './advice/advice.component';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AdviceComponent } from './advice/advice.component';
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
+    MatListModule,
     ToastrModule.forRoot()
   ],
   providers: [],
