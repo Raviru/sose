@@ -1,0 +1,28 @@
+
+<mat-card>
+    <mat-card-header>
+        <h2>Student Advice Request</h2>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form" [formGroup]="adviceForm" (ngSubmit)="submitConcern()">
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="studentEmail" >
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Topic</mat-label>
+                <input matInput formControlName="topic" >
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+            <mat-label>Your Concern in Brief</mat-label>
+            <textarea matInput formControlName="message" placeholder="Ex. It makes me feel..."></textarea>
+            </mat-form-field>
+            
+              <div>
+                <button mat-raised-button color="primary">Submit</button>
+              </div>
+          </form>
+    </mat-card-content>
+  </mat-card>

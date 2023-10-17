@@ -23,7 +23,7 @@ export class UpdatepopupComponent implements OnInit {
   }
   ngOnInit(): void {
     if (this.data.usercode != '' && this.data.usercode != null) {
-      this.loaduserdata(this.data.usercode);
+      this.loaduserdata(this.data.usercode, this.data.password);
     }
   }
   rolelist: any;
@@ -39,8 +39,8 @@ export class UpdatepopupComponent implements OnInit {
     isactive: this.builder.control(false)
   });
 
-  loaduserdata(code: any) {
-    this.service.GetUserbyCode(code).subscribe(res => {
+  loaduserdata(code: any, password: any) {
+    this.service.GetUserbyCode(code, password).subscribe(res => {
       this.editdata = res;
       console.log(this.editdata);
       this.registerform.setValue({

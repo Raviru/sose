@@ -14,6 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 import { CustomerComponent } from './customer/customer.component';
+import { AdviceComponent } from './advice/advice.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CustomerComponent } from './customer/customer.component';
     HomeComponent,
     UserComponent,
     UpdatepopupComponent,
-    CustomerComponent
+    CustomerComponent,
+    AdviceComponent
   ],
   imports: [
     BrowserModule,

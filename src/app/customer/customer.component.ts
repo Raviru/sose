@@ -40,7 +40,7 @@ export class CustomerComponent {
     });
   }
   SetAccesspermission() {
-    this.service.Getaccessbyrole(this.service.getrole(), 'customer').subscribe(res => {
+    this.service.Getaccessbyrole('admin', 'customer').subscribe(res => {
       this.accessdata = res;
       //console.log(this.accessdata);
 

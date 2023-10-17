@@ -33,7 +33,7 @@ export class UserComponent implements AfterViewInit {
       this.dataSource.sort = this.sort;
     });
   }
-  displayedColumns: string[] = ['username', 'name', 'email', 'status', 'role', 'action'];
+  displayedColumns: string[] = ['name', 'email', 'status', 'action'];
 
   updateuser(code: any) {
     this.OpenDialog('1000ms', '600ms', code);

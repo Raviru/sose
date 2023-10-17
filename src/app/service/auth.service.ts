@@ -12,13 +12,23 @@ export class AuthService {
   apiurl='http://localhost:3000/user';
 
   RegisterUser(inputdata:any){
-    return this.http.post(this.apiurl,inputdata)
+    return this.http.post(this.apiurl+'/register',inputdata)
   }
-  GetUserbyCode(id:any){
-    return this.http.get(this.apiurl+'/'+id);
+  submitAdvice(studentConcern:any){
+    return this.http.post('http://localhost:3004/advice/sendEmails',studentConcern)
   }
+  
+
+  GetUserbyCode(id:any, email:any){
+    return this.http.get(this.apiurl+'/login');
+  }
+
+  loginUser(data:any){
+    return this.http.post(this.apiurl+'/login', data);
+  }
+
   Getall(){
-    return this.http.get(this.apiurl);
+    return this.http.get(this.apiurl+'/all');
   }
   updateuser(id:any,inputdata:any){
     return this.http.put(this.apiurl+'/'+id,inputdata);
@@ -34,6 +44,9 @@ export class AuthService {
   }
   GetAllCustomer(){
     return this.http.get('http://localhost:3000/customer');
+  }
+  GetAllSubjects(){
+    return this.http.get(this.apiurl+'/subjects');
   }
   Getaccessbyrole(role:any,menu:any){
     return this.http.get('http://localhost:3000/roleaccess?role='+role+'&menu='+menu)

@@ -6,19 +6,20 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements DoCheck {
   title = 'authentication';
-  isadmin=false;
-  isMenuVisible=false;
+  isadmin=true;
+  isMenuVisible=true;
   constructor(private route:Router){
     let role=sessionStorage.getItem('role');
-    if(role=='admin'){
+    if(true){
       this.isadmin=true;
     }
   }
   ngDoCheck(): void {
     let currentroute = this.route.url;
-    let role=sessionStorage.getItem('role');
+    let role = 'admin'
     if (currentroute == '/login' || currentroute == '/register') {
       this.isMenuVisible = false
     } else {
@@ -28,7 +29,7 @@ export class AppComponent implements DoCheck {
     if (role == 'admin') {
       this.isadmin = true;
     }else{
-      this.isadmin = false;
+      this.isadmin = true;
     }
   }
 }
