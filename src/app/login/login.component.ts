@@ -16,7 +16,6 @@ export class LoginComponent {
 
   }
   result: any;
-
   loginform = this.builder.group({
     email: this.builder.control('', Validators.required),
     password: this.builder.control('', Validators.required)
@@ -29,6 +28,8 @@ export class LoginComponent {
         if (this.result.password === this.loginform.value.password) {
           // if (this.result.isactive) {
             sessionStorage.setItem('username',this.result.id);
+            sessionStorage.setItem('email',this.result.email);
+            sessionStorage.setItem('isAdmitted',this.result.isAdmitted);
             // sessionStorage.setItem('role',this.result.role);
             this.router.navigate(['']);
           // } else {

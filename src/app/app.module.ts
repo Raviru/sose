@@ -16,6 +16,7 @@ import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AdviceComponent } from './advice/advice.component';
 import {MatListModule} from '@angular/material/list';
+import { DeleteConfirmPopUpComponent } from './delete-confirm-pop-up/delete-confirm-pop-up.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {MatListModule} from '@angular/material/list';
     UserComponent,
     UpdatepopupComponent,
     CustomerComponent,
-    AdviceComponent
+    AdviceComponent,
+    DeleteConfirmPopUpComponent
   ],
   imports: [
     BrowserModule,
