@@ -1,31 +1,21 @@
 <h1 mat-dialog-title>Enrolled Subjects</h1>
 <form [formGroup]="registerform">
     <div mat-dialog-content>
-
-<!--        <mat-form-field>-->
-<!--            <mat-label>Role</mat-label>-->
-<!--            <mat-select formControlName="role">-->
-<!--                <mat-option value=''>Select Role</mat-option>-->
-<!--                <mat-option *ngFor="let item of rolelist" [value]="item.code">-->
-<!--                    {{item.name}}-->
-<!--                </mat-option>-->
-<!--            </mat-select>-->
-<!--        </mat-form-field>-->
-
-      <mat-list role="list">
-        <mat-list-item *ngFor="let subject of subjects" >
+      <mat-list role="list" *ngIf="subjects?.length > 0 ; else emptySubjects">
+        <mat-list-item  *ngFor="let subject of subjects" >
           {{subject}}
         </mat-list-item>
       </mat-list>
 
-<!--        <section class="example-section">-->
-<!--            <br>-->
-<!--            <mat-checkbox  formControlName="isactive" class="example-margin">Is Active</mat-checkbox>-->
-<!--        </section>-->
-
+      <ng-template #emptySubjects>
+        <mat-list>
+          <mat-list-item  >
+            {{data.email}} have no enrolled subjects !
+          </mat-list-item>
+        </mat-list>
+      </ng-template>
     </div>
     <div mat-dialog-actions >
-<!--        <button type="submit" mat-raised-button color="primary" cdkFocusInitial>Save</button>-->
         <button mat-raised-button color="warn" align="center"  mat-dialog-close>Close</button>
     </div>
 </form>

@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Enrolement</h1>
+<form [formGroup]="registerform">
+  <div mat-dialog-content>
+    <mat-list role="list" *ngIf="subjects?.length > 0 ; else emptySubjects">
+      <mat-list-item  *ngFor="let subject of subjects" >
+        {{subject}}
+      </mat-list-item>
+    </mat-list>
+
+    <ng-template #emptySubjects>
+      <mat-list>
+        <mat-list-item  >
+          {{data.email}} have no enrolled subjects !
+        </mat-list-item>
+      </mat-list>
+    </ng-template>
+  </div>
+  <div mat-dialog-actions >
+    <button mat-raised-button color="warn" align="center"  mat-dialog-close>Close</button>
+  </div>
+</form>

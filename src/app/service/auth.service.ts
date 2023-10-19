@@ -22,6 +22,10 @@ export class AuthService {
     return this.http.post('http://localhost:3001/admission/create',studentAdmission)
   }
 
+  enrollStudent(data:any){
+    return this.http.post('http://localhost:3002/enrollment/enroll', data)
+  }
+
   GetUserbyCode(id:any, email:any){
     return this.http.get(this.apiurl+'/login');
   }
@@ -35,12 +39,15 @@ export class AuthService {
   }
 
   deleteAdmission(data:any){
-
-    console.log(data);
     return this.http.delete('http://localhost:3001/admission/delete', data);
+    console.log(data);
   }
   Getall(){
     return this.http.get(this.apiurl+'/all');
+  }
+
+  GetallSubs(){
+    return this.http.get('http://localhost:3002/enrollment/subjects');
   }
   updateuser(id:any,inputdata:any){
     return this.http.put(this.apiurl+'/'+id,inputdata);

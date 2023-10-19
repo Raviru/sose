@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user/user.component';
 import { AdviceComponent } from './advice/advice.component';
+import {EnrollmentComponent} from "./enrollment/enrollment.component";
 
 const routes: Routes = [
  {component:LoginComponent,path:'login'},
@@ -14,7 +15,8 @@ const routes: Routes = [
  {component:HomeComponent,path:'',canActivate:[AuthGuard]},
  {component:UserComponent,path:'user',canActivate:[AuthGuard]},
  {component:CustomerComponent,path:'customer'},
- {component:AdviceComponent,path:'advice'}
+ {component:AdviceComponent,path:'advice'},
+ {component:EnrollmentComponent,path:'enrollment'}
 ];
 
 @NgModule({

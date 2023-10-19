@@ -17,8 +17,6 @@ import {ConfrimationDialogService} from "../confrimation-dialog.service";
 
 
 export class CustomerComponent {
-  // @ViewChild(MatPaginator) paginator!: MatPaginator;
-  // @ViewChild(MatSort) sort!: MatSort;
   constructor(private builder: FormBuilder,
               private  service: AuthService,
               private toastr:ToastrService,
@@ -79,23 +77,21 @@ export class CustomerComponent {
     commencement : ['', [Validators.required]]
   });
 
+  createJson(email: string): any {
+    return {
+      email: email,
+    };
+  }
+
   async deleteAdmission() {
     const isConfirmed = await this.ConfrimationDialogService.openConfirmationDialog();
     if (isConfirmed) {
-      this.service.deleteAdmission(JSON.stringify((this.toJSON(this.email)))).subscribe(result => {
+      this.service.deleteAdmission(this.createJson(this.email)).subscribe(result => {
         this.clearFormFields();
         this.toastr.success('Something went wrong with your request', 'Admission deleted successfully')
         this.router.navigate(['customer'])
       });
     }
-  }
-
-  deleteAdmission2(){
-    this.service.deleteAdmission(this.email).subscribe(result => {
-      this.toastr.success('Something went wrong with your request','Admission deleted successfully')
-      this.router.navigate(['customer'])
-      this.clearFormFields();
-    });
   }
 
   createAdmission() {
@@ -108,7 +104,7 @@ export class CustomerComponent {
         this.LoadAdmissionDetails(this.toJSON(sessionStorage.getItem('email')));
       });
     } else {
-      this.toastr.warning('Please enter a valid data')
+      // this.toastr.warning('Please enter a valid data')
     }
   }
 
@@ -119,28 +115,6 @@ export class CustomerComponent {
       degree: '',
       commencement: ''
     });
-  }
-
-  updatecustomer(code: any) {
-    if(this.haveedit){
-       this.toastr.success('Success')
-    }else{
-      this.toastr.warning("You don't have access for Edit")
-    }
-  }
-  removecustomer(code: any) {
-    if(this.havedelete){
-      this.toastr.success('Success')
-   }else{
-     this.toastr.warning("You don't have access for Delete")
-   }
-  }
-  addcustomer() {
-    if(this.haveadd){
-      this.toastr.success('Success')
-   }else{
-     this.toastr.warning("You don't have access for Create")
-   }
   }
 
 }

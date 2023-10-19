@@ -13,7 +13,6 @@ import { UpdatepopupComponent } from '../updatepopup/updatepopup.component'
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements AfterViewInit {
-
   constructor(private builder: FormBuilder, private service: AuthService, private dialog: MatDialog) {
     this.LoadUser();
   }
@@ -33,19 +32,20 @@ export class UserComponent implements AfterViewInit {
       this.dataSource.sort = this.sort;
     });
   }
-  displayedColumns: string[] = ['name', 'email', 'status', 'action'];
+  displayedColumns: string[] = [ 'email', 'status', 'action'];
 
-  updateuser(code: any) {
-    this.OpenDialog('1000ms', '600ms', code);
+  updateuser(email: any, subjects: any) {
+    this.OpenDialog('1000ms', '600ms', email, subjects);
   }
 
-  OpenDialog(enteranimation: any, exitanimation: any, code: string) {
+  OpenDialog(enteranimation: any, exitanimation: any, email: string, subs: any) {
     const popup = this.dialog.open(UpdatepopupComponent, {
       enterAnimationDuration: enteranimation,
       exitAnimationDuration: exitanimation,
-      width: '30%',
+      width: '35%',
       data: {
-        usercode: code
+        email: email,
+        subjects: subs
       }
     });
     popup.afterClosed().subscribe(res => {

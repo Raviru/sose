@@ -21,7 +21,8 @@ export class UpdatepopupComponent implements OnInit {
 
   }
 
-  subjects = ['a','b', 'c'];
+  // subjects = ['a','b', 'c'];
+  subjects = this.data.subjects;
 
   ngOnInit(): void {
     if (this.data.usercode != '' && this.data.usercode != null) {
